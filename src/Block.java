@@ -47,7 +47,7 @@ public class Block extends JComponent {
         }
     }
 
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         final int LENGTH = 100;
         final int GAP = 10;
         int xpos = 50 + (LENGTH + GAP) * x;
@@ -64,8 +64,9 @@ public class Block extends JComponent {
             g.fillRect(xpos, ypos, LENGTH, LENGTH);
 
         g.setFont(new Font("Tahoma", Font.BOLD, 45 - 4 * size));
-        FontMetrics fm = g.getFontMetrics();
 
+        // Center the number inside the tile
+        FontMetrics fm = g.getFontMetrics();
         xpos += (LENGTH - fm.stringWidth(Integer.toString(value))) / 2;
         ypos += ((LENGTH - fm.getHeight()) / 2) + fm.getAscent();
         if (value > 4)

@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Board extends JPanel {
-    private int status;
-
-    Board(int status) {
-        this.status = status;
+    Board() {
     }
 
     public void paintComponent(Graphics g) {
@@ -22,21 +19,5 @@ public class Board extends JPanel {
         g.setFont(new Font("Arial", Font.BOLD, 22));
         g.drawString(Integer.toString(Game.score), 260, 30);
         g.setFont(new Font("Arial", Font.BOLD, 16));
-        if (status == 0) {
-            g.drawString("Join the numbers and get to the 2048 tile!", 40, 540);
-            g.drawString("HOW TO PLAY: Use your arrow keys to move the tiles. When", 40, 590);
-            g.drawString("two tiles with the same number touch, they merge into one!", 40, 615);
-        }
-        else if (status == 1) {
-            g.drawString("Game Over!", 40, 540);
-            g.drawString("You scored " +Integer.toString(Game.score) + " points.", 40, 590);
-        }
-        else
-            g.drawString("You won!", 40, 540);
-
-        g.fillRect(370, 515, 120, 40);
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Tahoma", Font.BOLD, 18));
-        g.drawString("New Game", 380, 540);
     }
 }
