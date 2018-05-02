@@ -4,10 +4,10 @@ import java.awt.event.*;
 import static java.awt.event.KeyEvent.*;
 
 class Game extends JFrame {
-    static int[][] grid; // The 4x4 grid of the tiles
-    static int score; // Current game score
-    static int newX; // Coordinates of the newly spawned tile
-    static int newY;
+    int[][] grid; // The 4x4 grid of the tiles
+    int score; // Current game score
+    int newX; // Coordinates of the newly spawned tile
+    int newY;
     private int status; // Status of the game. 0 = normal, 1 = Game over, 2 = Game won
     private KeyAdapter keyAdapter;
 
@@ -241,7 +241,7 @@ class Game extends JFrame {
         });
         newGame.setFont(font);
 
-        Board board = new Board();
+        Board board = new Board(this);
         JPanel instructions = new JPanel();
         instructions.setLayout(new BoxLayout(instructions, BoxLayout.PAGE_AXIS));
 
